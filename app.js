@@ -99,9 +99,15 @@ function PlanetContainer() {
   const [planetData, setPlanetData] = React.useState(planets);
 
   const Delete = (planetName) => {
-    const updatedData = planetData.filter((planet) => planet.name !== planetName);
-    setPlanetData(updatedData);
+    const updateddata = [];
+    for (let i = 0; i < planetData.length; i++) {
+      if (planetData[i].name !== planetName) {
+        updateddata.push(planetData[i]);
+      }
+    }
+    setPlanetData(updateddata);
   };
+
   return (
     <div className="container">
       {planetData.map((planet) => (
@@ -118,6 +124,7 @@ function PlanetContainer() {
     </div>
   );
 }
+
 
 
 
